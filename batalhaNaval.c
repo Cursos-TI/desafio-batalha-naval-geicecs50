@@ -1,10 +1,55 @@
 #include <stdio.h>
+int main(){
 
-// Desafio Batalha Naval - MateCheck
-// Este código inicial serve como base para o desenvolvimento do sistema de Batalha Naval.
-// Siga os comentários para implementar cada parte do desafio.
+    int tabuleiro[10][10] = {
+        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
+    };
 
-int main() {
+    int navio1_linha = 3, navio1_coluna = 8;
+    int navio2_linha = 2, navio2_coluna = 3;
+    
+    printf("\nTabuleiro:\n");
+    for (int i = 0; i < 10; i++) {
+        for (int j = 0; j < 10; j++) {
+            printf("%d ", tabuleiro[i][j]);
+        }
+        printf("\n");  
+    };
+
+    for ( int i = 0; i < 10; i++){
+        for (int j = 0; j < 10; j++){
+            if (tabuleiro[i] == tabuleiro[navio1_linha] 
+                && tabuleiro[j] == tabuleiro[navio1_coluna]){
+                    tabuleiro[i][j] = 3;
+                    if (j > 0 && j <= 10){
+                    tabuleiro[i][j + 1] = 3; // faz caminhar a coluna, na horizontal
+                    
+                    tabuleiro[i][j - 1] = 3;
+                    }
+            }
+
+        };
+    };
+
+    printf("\nTabuleiro:\n");
+    for (int i = 0; i < 10; i++){
+        for (int j = 0; j < 10; j++) {
+            printf("%d ", tabuleiro[i][j]);
+        }
+        printf("\n"); 
+    };
+
+    return 0;
+}
     // Nível Novato - Posicionamento dos Navios
     // Sugestão: Declare uma matriz bidimensional para representar o tabuleiro (Ex: int tabuleiro[5][5];).
     // Sugestão: Posicione dois navios no tabuleiro, um verticalmente e outro horizontalmente.
@@ -36,5 +81,3 @@ int main() {
     // 1 1 1 1 1
     // 0 0 1 0 0
 
-    return 0;
-}
